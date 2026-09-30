@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class QuestionService
 {
     Question[] questions = new Question[5];
+      String[] selection = new String[5];
 
     public QuestionService() {
         questions[0] = new Question(1, "size of int", "2", "6", "4", "8", "4");
@@ -10,21 +13,31 @@ public class QuestionService
         questions[4] = new Question(5, "size of boolean", "1", "2", "4", "8", "1");
     } 
 
-    public void displayQuestions() {
+    public void playQuiz() {
 
         System.out.println("Displaying all questions:");
 
+        int i = 0;
         for (Question question : questions) {
             if (question != null) {
-                System.out.println("ID: " + question.getId());
-                System.out.println("Question: " + question.getQuestion());
-                System.out.println("1. " + question.getOpt1());
-                System.out.println("2. " + question.getOpt2());
-                System.out.println("3. " + question.getOpt3());
-                System.out.println("4. " + question.getOpt4());
-                System.out.println("Answer: " + question.getAnswer());
-                System.out.println();
+                System.out.println("Question no.: " + question.getId());
+                System.out.println(question.getQuestion());
+
+                System.out.println(question.getOpt1());
+                System.out.println(question.getOpt2());
+                System.out.println( question.getOpt3());
+                System.out.println(question.getOpt4());
+
+                Scanner scanner = new Scanner(System.in);
+                selection[i] = scanner.nextLine(); 
+
+
+                i++;
             }
+        }
+
+        for (String s : selection) {
+            System.out.println("Your selection: " + s);
         }
     }
 }
