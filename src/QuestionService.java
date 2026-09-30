@@ -39,5 +39,22 @@ public class QuestionService
         for (String s : selection) {
             System.out.println("Your selection: " + s);
         }
+        
+        printScore();
+
+    
+    }
+
+    public void printScore() {
+        int score = 0;
+        for (int i = 0; i < questions.length; i++) {
+           Question question = questions[i];
+           if (question != null && selection[i] != null && selection[i].equals(question.getAnswer())) {
+               score++;
+           }
+        }
+
+        System.out.println(".......................");
+        System.out.println("Your score: " + score + "/" + questions.length);
     }
 }
